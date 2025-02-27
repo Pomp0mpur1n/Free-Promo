@@ -11,12 +11,12 @@ const playlistEl = document.getElementById('playlist');
 
 // List of songs (add more as needed)
 const songs = [
-  { title: 'Japanese Sample 1', artist: 'AFK', src: 'assets/1.opus', art: 'assets/1.gif' },
-  { title: 'Japanese Sample 2', artist: 'AFK', src: 'assets/2.opus', art: 'assets/2.gif' },
-  { title: 'Working Out', artist: 'AFK, Ethan', src: 'assets/3.opus', art: 'assets/3.gif' },
-  { title: 'Mixed Emotions', artist: 'AFK, bag of chips', src: 'assets/4.opus', art: 'assets/4.gif' },
-  { title: 'Like What', artist: 'AFK, doht,', src: 'assets/5.opus', art: 'assets/5.gif' },
-  { title: 'Moonrock', artist: 'AFK, Eskii', src: 'assets/6.opus', art: 'assets/6.gif' }
+  { title: 'Japanese Sample 1', artist: 'AFK', src: 'assets/1.mp3', art: 'assets/1.gif' },
+  { title: 'Japanese Sample 2', artist: 'AFK', src: 'assets/2.mp3', art: 'assets/2.gif' },
+  { title: 'Working Out', artist: 'AFK, Ethan', src: 'assets/3.mp3', art: 'assets/3.gif' },
+  { title: 'Mixed Emotions', artist: 'AFK, bag of chips', src: 'assets/4.mp3', art: 'assets/4.gif' },
+  { title: 'Like What', artist: 'AFK, doht,', src: 'assets/5.mp3', art: 'assets/5.gif' },
+  { title: 'Moonrock', artist: 'AFK, Eskii', src: 'assets/6.mp3', art: 'assets/6.gif' }
 ];
 
 let currentSongIndex = 0;

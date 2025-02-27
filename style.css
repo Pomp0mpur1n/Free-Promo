@@ -129,3 +129,21 @@ body {
   font-size: 1rem;
   margin-left: 10px;
 }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .player-container,
+  .playlist-container {
+    width: 90%;
+  }
+
+  .album-art img {
+    width: 100%;
+    height: auto;
+  }
+
+  #playlist li {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
