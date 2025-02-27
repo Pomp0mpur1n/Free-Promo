@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Add Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="player-container">
+    <div class="album-art">
+      <img src="https://via.placeholder.com/300" alt="Album Art" id="album-art">
+    </div>
+    <div class="controls">
+      <div class="song-info">
+        <h2 id="song-title">Song Title</h2>
+        <p id="artist-name">Artist Name</p>
+      </div>
+      <div class="progress-bar">
+        <input type="range" id="progress" value="0" step="1">
+      </div>
+      <div class="buttons">
+        <button id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="play-pause-btn"><i class="fa-solid fa-play"></i></button>
+        <button id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Playlist Section -->
+  <div class="playlist-container">
+    <h3>Playlist</h3>
+    <ul id="playlist">
+      <!-- Songs will be dynamically added here -->
+    </ul>
+  </div>
+
+  <audio id="audio" src="" preload="metadata"></audio>
+  <script src="index.js"></script>
+</body>
+</html>

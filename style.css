@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.player-container {
+  width: 350px;
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.album-art img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.song-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.song-info p {
+  font-size: 1rem;
+  color: #b3b3b3;
+}
+
+.progress-bar input[type="range"] {
+  width: 100%;
+  margin: 20px 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #333;
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.progress-bar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ff3b30;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  gap: 20px; /* Add space between buttons */
+}
+
+.buttons button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.buttons button:hover {
+  color: #ff3b30; /* Highlight color on hover */
+}
+
+.buttons button i {
+  display: block; /* Ensure icons are centered */
+}
+
+.playlist-container {
+  width: 350px;
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.playlist-container h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#playlist {
+  list-style: none;
+  padding: 0;
+}
+
+#playlist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: #2a2a2a;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#playlist li:hover {
+  background: #3a3a3a;
+}
+
+#playlist li.active {
+  background: #ff3b30; /* Highlight the currently playing song */
+  color: #ffffff;
+}
+
+#playlist li i {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-left: 10px;
+}
