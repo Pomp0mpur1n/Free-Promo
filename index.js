@@ -52,8 +52,22 @@ function togglePlayPause() {
 // Update progress bar
 function updateProgress() {
   const percent = (audio.currentTime / audio.duration) * 100;
-  progress.value = percent;
+  progress.style.setProperty('--progress', `${percent}%`);
 }
+
+// Smooth progress bar update
+function updateProgressSmoothly() {
+  const percent = (audio.currentTime / audio.duration) * 100;
+  progress.style.setProperty('--progress', `${percent}%`);
+  if (!audio.paused) {
+    requestAnimationFrame(updateProgressSmoothly);
+  }
+}
+
+// Start smooth progress updates when the song plays
+audio.addEventListener('play', () => {
+  requestAnimationFrame(updateProgressSmoothly);
+});
 
 // Seek to a specific time
 function setProgress() {
@@ -132,6 +146,17 @@ function updatePlaylistActiveClass() {
     item.classList.toggle('active', index === currentSongIndex);
   });
 }
+
+// Volume Control
+const volumeControl = document.getElementById('volume');
+
+// Set initial volume
+audio.volume = volumeControl.value;
+
+// Update volume when the slider is moved
+volumeControl.addEventListener('input', () => {
+  audio.volume = volumeControl.value;
+});
 
 // Event listeners
 playPauseBtn.addEventListener('click', togglePlayPause);
