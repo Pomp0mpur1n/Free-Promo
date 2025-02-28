@@ -9,7 +9,7 @@ const artistName = document.getElementById('artist-name');
 const albumArt = document.getElementById('album-art');
 const playlistEl = document.getElementById('playlist');
 
-// List of songs (add more as needed)
+// List of songs
 const songs = [
   { title: 'Japanese Sample 1', artist: 'AFK', src: 'assets/1.mp3', art: 'assets/1.gif' },
   { title: 'Japanese Sample 2', artist: 'AFK', src: 'assets/2.mp3', art: 'assets/2.gif' },
@@ -29,7 +29,7 @@ function loadSong(index) {
   artistName.textContent = song.artist;
   albumArt.src = song.art;
 
-  // Reset the play/pause button to "play" state
+  // Update the play/pause button to "play" state
   const icon = playPauseBtn.querySelector('i');
   icon.classList.remove('fa-pause');
   icon.classList.add('fa-play');
@@ -37,7 +37,7 @@ function loadSong(index) {
 
 // Play or pause the song
 function togglePlayPause() {
-  const icon = playPauseBtn.querySelector('i'); // Get the <i> element inside the button
+  const icon = playPauseBtn.querySelector('i');
   if (audio.paused) {
     audio.play();
     icon.classList.remove('fa-play');
@@ -67,27 +67,30 @@ function playPrevSong() {
   loadSong(currentSongIndex);
   audio.play();
 
-  // Update the play/pause button to "pause" state
+  // Update the play/pause button and playlist active class
   const icon = playPauseBtn.querySelector('i');
   icon.classList.remove('fa-play');
   icon.classList.add('fa-pause');
+  updatePlaylistActiveClass();
 }
 
 // Play next song
 function playNextSong() {
-  currentSongIndex = (currentSongIndex + 1) % songs.length; // Loop back to the first song
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
   audio.play();
 
-  // Update the play/pause button to "pause" state
+  // Update the play/pause button and playlist active class
   const icon = playPauseBtn.querySelector('i');
   icon.classList.remove('fa-play');
   icon.classList.add('fa-pause');
+  updatePlaylistActiveClass();
 }
 
 // Autoplay the next song when the current song ends
 audio.addEventListener('ended', () => {
-  playNextSong(); // Automatically play the next song
+  playNextSong();
+  updatePlaylistActiveClass(); // Update the active class
 });
 
 // Populate the playlist
@@ -96,8 +99,7 @@ function populatePlaylist() {
   songs.forEach((song, index) => {
     const li = document.createElement('li');
     li.textContent = `${song.title} - ${song.artist}`;
-    li.setAttribute('draggable', true); // Enable drag-and-drop
-    li.dataset.index = index; // Store the song's index
+    li.dataset.index = index;
 
     // Highlight the currently playing song
     if (index === currentSongIndex) {
@@ -115,61 +117,21 @@ function populatePlaylist() {
       icon.classList.remove('fa-play');
       icon.classList.add('fa-pause');
 
-      // Repopulate the playlist to highlight the active song
-      populatePlaylist();
+      // Update the active class in the playlist
+      updatePlaylistActiveClass();
     });
-
-    // Add event listeners for drag-and-drop
-    li.addEventListener('dragstart', handleDragStart);
-    li.addEventListener('dragover', handleDragOver);
-    li.addEventListener('drop', handleDrop);
 
     playlistEl.appendChild(li);
   });
 }
 
-// Handle drag-and-drop events
-let draggedIndex = null;
-
-function handleDragStart(e) {
-  draggedIndex = e.target.dataset.index; // Store the index of the dragged item
-  e.dataTransfer.effectAllowed = 'move';
-}
-
-function handleDragOver(e) {
-  e.preventDefault(); // Allow dropping
-}
-
-function handleDrop(e) {
-  e.preventDefault();
-  const targetIndex = e.target.dataset.index;
-
-  if (draggedIndex !== null && targetIndex !== undefined) {
-    // Rearrange the songs array
-    const draggedSong = songs.splice(draggedIndex, 1)[0];
-    songs.splice(targetIndex, 0, draggedSong);
-
-    // Update the currentSongIndex if necessary
-    if (currentSongIndex == draggedIndex) {
-      currentSongIndex = targetIndex;
-    } else if (draggedIndex < currentSongIndex && targetIndex >= currentSongIndex) {
-      currentSongIndex--;
-    } else if (draggedIndex > currentSongIndex && targetIndex <= currentSongIndex) {
-      currentSongIndex++;
-    }
-
-    // Repopulate the playlist
-    populatePlaylist();
-  }
-}
-
-// Update the playlist when a new song starts playing
-audio.addEventListener('play', () => {
+// Function to update the active class in the playlist
+function updatePlaylistActiveClass() {
   const playlistItems = playlistEl.querySelectorAll('li');
   playlistItems.forEach((item, index) => {
     item.classList.toggle('active', index === currentSongIndex);
   });
-});
+}
 
 // Event listeners
 playPauseBtn.addEventListener('click', togglePlayPause);
@@ -184,8 +146,8 @@ populatePlaylist();
 
 // Listen for the spacebar keydown event
 document.addEventListener('keydown', (event) => {
-  if (event.code === 'Space') { // Check if the pressed key is the spacebar
-    event.preventDefault(); // Prevent default behavior (e.g., scrolling)
-    togglePlayPause(); // Toggle play/pause
+  if (event.code === 'Space') {
+    event.preventDefault();
+    togglePlayPause();
   }
 });
