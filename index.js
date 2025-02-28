@@ -51,6 +51,7 @@ function togglePlayPause() {
 
 // Update progress bar
 function updateProgress() {
+  if (!audio.duration) return; // Exit if duration is unavailable
   const percent = (audio.currentTime / audio.duration) * 100;
   progress.style.setProperty('--progress', `${percent}%`);
 }
@@ -164,6 +165,10 @@ prevBtn.addEventListener('click', playPrevSong);
 nextBtn.addEventListener('click', playNextSong);
 audio.addEventListener('timeupdate', updateProgress);
 progress.addEventListener('input', setProgress);
+volumeControl.addEventListener('input', () => {
+  console.log('Volume changed:', volumeControl.value);
+  audio.volume = volumeControl.value;
+});
 
 // Load the first song and populate the playlist on page load
 loadSong(currentSongIndex);
