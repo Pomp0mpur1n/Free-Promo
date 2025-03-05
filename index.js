@@ -16,7 +16,7 @@ const songs = [
   { title: 'Tik Tok Type Shat', artist: 'AFK', src: 'assets/bee poo.mp3', art: 'assets/4.gif' },
   { title: 'Doja Cat Club Shat', artist: 'AFK', src: 'assets/doja cat.mp3', art: 'assets/2.gif' },
   { title: 'Shake Them Hips', artist: 'AFK, Remi', src: 'assets/3.mp3', art: 'assets/3.gif' },
-  { title: 'Like What', artist: 'AFK, doht, khematics', src: 'assets/5.mp3', art: 'assets/5.gif' }
+  { title: 'Formulas', artist: 'AFK, spratta', src: 'assets/Formulas.mp3', art: 'assets/5.gif' }
 ];
 
 let currentSongIndex = 0;
