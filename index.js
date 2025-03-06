@@ -12,7 +12,7 @@ const playlistEl = document.getElementById('playlist');
 // List of songs
 const songs = [
   { title: 'Drunk Text', artist: 'AFK, thatslamlam, YND, Blxthe', src: 'assets/6.mp3', art: 'assets/6.gif' },
-  { title: 'Cryogen', artist: 'AFK, Xaiyo', src: 'assets/Cryogen.mp3', art: 'assets/1.gif' },
+  { title: '揽佬 Type Shat', artist: 'AFK', src: 'assets/typeshit.mp3', art: 'assets/1.gif' },
   { title: 'Tik Tok Type Shat', artist: 'AFK', src: 'assets/bee poo.mp3', art: 'assets/4.gif' },
   { title: 'Doja Cat Club Shat', artist: 'AFK', src: 'assets/doja cat.mp3', art: 'assets/2.gif' },
   { title: 'Shake Them Hips', artist: 'AFK, Remi', src: 'assets/3.mp3', art: 'assets/3.gif' },
