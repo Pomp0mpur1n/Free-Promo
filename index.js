@@ -11,12 +11,12 @@ const playlistEl = document.getElementById('playlist');
 
 // List of songs
 const songs = [
-  { title: 'Drunk Text', artist: 'AFK, thatslamlam, YND, Blxthe', src: 'assets/6.mp3', art: 'assets/6.gif' },
-  { title: 'Freestyle', artist: 'AFK', src: 'assets/typeshit.mp3', art: 'assets/1.gif' },
-  { title: 'Tik Tok Type Shat', artist: 'AFK', src: 'assets/bee poo.mp3', art: 'assets/4.gif' },
-  { title: 'Doja Cat Club Shat', artist: 'AFK', src: 'assets/doja cat.mp3', art: 'assets/2.gif' },
-  { title: 'Formulas', artist: 'AFK, spratta', src: 'assets/Formulas.mp3', art: 'assets/5.gif' },
-  { title: 'Younger', artist: 'AFK, thatslamlam', src: 'assets/younger.mp3', art: 'assets/3.gif' }
+  { title: 'Drunk Text', artist: 'AFK, thatslamlam, YND, Blxthe', src: 'assets/6.mp3', art: 'assets/1.jpeg' },
+  { title: 'Freestyle', artist: 'AFK', src: 'assets/typeshit.mp3', art: 'assets/1.jpeg' },
+  { title: 'Tik Tok Type Shat', artist: 'AFK', src: 'assets/bee poo.mp3', art: 'assets/1.jpeg' },
+  { title: 'Doja Cat Club Shat', artist: 'AFK', src: 'assets/doja cat.mp3', art: 'assets/1.jpeg' },
+  { title: 'Formulas', artist: 'AFK, spratta', src: 'assets/Formulas.mp3', art: 'assets/1.jpeg' },
+  { title: 'Younger', artist: 'AFK, thatslamlam', src: 'assets/younger.mp3', art: 'assets/1.jpeg' }
 ];
 
 let currentSongIndex = 0;
